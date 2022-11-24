@@ -15,12 +15,17 @@ function App() {
 		const videoWidth = webcamRef.current.video.videoWidth;
 		const videoHeight = webcamRef.current.video.videoHeight;
 
-		// Set canvas width
 		canvasRef.current.width = videoWidth;
 		canvasRef.current.height = videoHeight;
 
 		const canvasElement = canvasRef.current;
 		const canvasCtx = canvasElement.getContext("2d");
+
+		// Add Image
+		// const image = new Image();
+		// image.src =
+		// 	"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1200px-Picture_icon_BLACK.svg.png";
+
 		canvasCtx.save();
 		canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
 		canvasCtx.drawImage(
@@ -80,6 +85,7 @@ function App() {
 			maxNumFaces: 1,
 			minDetectionConfidence: 0.5,
 			minTrackingConfidence: 0.5,
+			selfieMode: true,
 		});
 
 		faceMesh.onResults(onResults);
@@ -102,6 +108,7 @@ function App() {
 		<center>
 			<div className="App">
 				<Webcam
+					hidden
 					ref={webcamRef}
 					style={{
 						position: "absolute",
