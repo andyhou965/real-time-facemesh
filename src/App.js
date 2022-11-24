@@ -1,3 +1,5 @@
+import "./App.css";
+import { FaceMesh } from "@mediapipe/face_mesh";
 import * as face_mesh from "@mediapipe/face_mesh";
 import React, { useRef, useEffect } from "react";
 import * as cam from "@mediapipe/camera_utils";
@@ -14,7 +16,7 @@ function App() {
 	// setInterval(())
 	useEffect(() => {
 		// Load model
-		const faceMesh = new face_mesh.FaceMesh({
+		const faceMesh = new FaceMesh({
 			locateFile: (file) =>
 				`https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`,
 		});
