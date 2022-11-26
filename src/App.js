@@ -107,6 +107,7 @@ function App() {
 	return (
 		<center>
 			<div className="App">
+				<img src={require("./sun.gif")} alt="my-gif" />
 				<Webcam
 					hidden
 					ref={webcamRef}
